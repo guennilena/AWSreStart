@@ -9,23 +9,18 @@ if [ ! -d "$file_folder" ]; then
   # fragen ob Ordner angelegt werden soll
   echo "Der Ordner $file_folder existiert nicht in $(pwd)."
   echo "Soll der Ordner angelegt werden?"
-  echo "Drücken sie J zum Anlegen, N um einen Ordnernamen anzugeben."
-  read -n 1 result
-  if [ "$result" == "J" ] || [ "$result" == "j" ]; then
-    # wenn ja, anlegen
+  echo "Drücken sie J zum Anlegen. <any key> zum Beenden"
+  read -n 1 input
+  if [ "$input" == "J" ] || [ "$input" == "j" ]; then
+    # wenn Jj, anlegen
     mkdir "$file_folder"
     if [ $? != 0 ]; then
-      echo -e "\n\nFehler beim Erstellen des Ordners"
+      echo -e "\n\nFehler beim Erstellen des Ordners\n\nSkript wurde beendet."
       exit
     else
       echo -e "\n\nOrdner erfolgreich erstellt"
     fi
-#  elif [ "$result" == "N" ] || [ "$result" == "n" ]; then
-#    read new_folder
-#    mkdir "$new_folder"
-#    file_folder = $new_folder
   else
-    # ansonsten beenden
     exit
   fi
 fi
@@ -39,7 +34,7 @@ if [ -z "$max_num" ]; then
   max_num=0
 fi
 
-echo -e "\nmax_num =  $max_num"
+echo -e "\n max_num = $max_num"
 
 # Erhöhe die Nummer um 1 und erstelle die neuen Dateien
 next_num=$((max_num + 1))
