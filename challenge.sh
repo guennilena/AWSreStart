@@ -15,7 +15,7 @@ if [ ! -d "$file_folder" ]; then
     # wenn Jj, anlegen
     mkdir "$file_folder"
     if [ $? != 0 ]; then
-      echo -e "\n\nFehler beim Erstellen des Ordners\n\nSkript wurde beendet."
+      echo -e "\n\nFehler beim Erstellen des Ordners\n\nSkript beendet."
       exit
     else
       echo -e "\n\nOrdner erfolgreich erstellt"
@@ -36,7 +36,7 @@ fi
 
 echo -e "\n max_num = $max_num"
 
-# Erhöhe die Nummer um 1 und erstelle die neuen Dateien
+# Erhöhe die Nummer um 1
 next_num=$((max_num + 1))
 
 echo -e "next_num = $next_num"
